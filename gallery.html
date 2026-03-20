@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SDA School Gallery</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body {
+  background: #f5f5f5;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 30px;
+  background: white;
+}
+
+.navbar ul {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+
+.navbar .active {
+  color: red;
+}
+
+/* Hero */
+.hero {
+  height: 500px;
+  background: url('./images/school/School-frontview.JPG') center/cover;
+}
+
+.overlay {
+  background: rgba(0,0,0,0.5);
+  height: 100%;
+  color: white;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Filters */
+.filters {
+  text-align: center;
+  margin: 20px;
+}
+
+.filters button {
+  margin: 5px;
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: 1px solid red;
+  background: white;
+  cursor: pointer;
+}
+
+.filters .active,
+.filters button:hover {
+  background: red;
+  color: white;
+}
+
+/* Gallery */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  gap: 15px;
+  padding: 20px;
+}
+
+.item {
+  overflow: hidden;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.item img {
+  width: 100%;
+  height: 180px; /* FIXED */
+  object-fit: cover; /* FIXED */
+  transition: 0.4s;
+}
+
+/* Hover */
+.item:hover {
+  transform: scale(1.05);
+}
+
+.item:hover img {
+  transform: scale(1.2);
+}
+
+/* Lightbox */
+#lightbox {
+  position: fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background: rgba(0,0,0,0.8);
+  display:none;
+  justify-content:center;
+  align-items:center;
+}
+
+#lightbox img {
+  max-width:80%;
+}
+
+#lightbox span {
+  position:absolute;
+  top:20px;
+  right:30px;
+  font-size:30px;
+  color:white;
+  cursor:pointer;
+}
+</style>
+
+</head>
+<body>
+
+<nav class="navbar">
+  <h2>SDA School</h2>
+  <ul>
+    <li>Home</li>
+    <li class="active">Gallery</li>
+    <li>About</li>
+    <li>Contact</li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="overlay">
+    <h1>Our Gallery</h1>
+    <p>Capturing school memories</p>
+  </div>
+</section>
+
+<div class="filters">
+  <button onclick="filterImages('all', this)" class="active">All</button>
+  <button onclick="filterImages('annual', this)">Annual Day</button>
+  <button onclick="filterImages('independence', this)">Independence Day</button>
+  <button onclick="filterImages('sports', this)">Sports Day</button>
+  <button onclick="filterImages('tours', this)">Tours</button>
+</div>
+
+<div class="gallery">
+
+  <!-- Annual -->
+  <div class="item annual"><img src="./images/annualday/Annual-day1.JPG"></div>
+  <div class="item annual"><img src="./images/annualday/Annual-day2.JPG"></div>
+<div class="item annual"><img src="./images/annualday/Annual-day3.JPG"></div>
+<div class="item annual"><img src="./images/annualday/Annual-day4.JPG"></div>
+<div class="item annual"><img src="./images/annualday/Annual-day5.JPG"></div>
+<div class="item annual"><img src="./images/annualday/Annual-day6.JPG"></div>
+<div class="item annual"><img src="./images/annualday/Annual-day7.JPG"></div>
+<div class="item annual"><img src="./images/annualday/Annual-day8.JPG"></div>
+<div class="item annual"><img src="./images/annualday/Annual-day9.JPG"></div>
+<div class="item annual"><img src="./images/annualday/Annual-day10.JPG"></div>
+<div class="item annual"><img src="./images/annualday/Annual-day11.JPG"></div>
+<div class="item annual"><img src="./images/annualday/Annual-day12.JPG"></div>
+<div class="item annual"><img src="./images/annualday/Annual-day13.JPG"></div>
+<div class="item annual"><img src="./images/annualday/Annual-day14.JPG"></div>
+
+  <!-- Independence -->
+  <div class="item independence"><img src="./images/independenceday/Independance-day1.JPG"></div>
+  <div class="item independence"><img src="./images/independenceday/independence-day2.jpg"></div>
+  <div class="item independence"><img src="./images/independenceday/Independence-day3.jpg"></div>
+  <div class="item independence"><img src="./images/independenceday/independence-day5.jpg"></div>
+  <div class="item independence"><img src="./images/independenceday/independence-day6.jpg"></div>
+  <div class="item independence"><img src="./images/independenceday/independence-day7.JPG"></div>
+  
+  <!-- Sports -->
+  <div class="item sports"><img src="./images/sportsday/Sports-day1.jpg"></div>
+  <div class="item sports"><img src="./images/sportsday/sports-day2.jpg"></div>
+  <div class="item sports"><img src="./images/sportsday/Sport-day3.jpg"></div>
+  <div class="item sports"><img src="./images/sportsday/sports-day4.jpg"></div>
+  <div class="item sports"><img src="./images/sportsday/Sports-day5.jpg"></div>
+  <div class="item sports"><img src="./images/sportsday/Sports-day6.jpg"></div>
+  <div class="item sports"><img src="./images/sportsday/Sports-day7.jpg"></div>
+  <div class="item sports"><img src="./images/sportsday/Sports-day8.jpg"></div>
+  <div class="item sports"><img src="./images/sportsday/Sports-day9.jpg"></div>
+  <div class="item sports"><img src="./images/sportsday/Sports-day10.jpg"></div>
+  <div class="item sports"><img src="./images/sportsday/Sports-day11.jpg"></div>
+  <div class="item sports"><img src="./images/sportsday/Sports-day12.jpg"></div>
+  <div class="item sports"><img src="./images/sportsday/Sports-day13.jpg"></div>
+
+  <!-- Tours -->
+  <div class="item tours"><img src="./images/tours/school-tours1.jpg"></div>
+  <div class="item tours"><img src="./images/tours/school-tours2.jpg"></div>
+  <div class="item tours"><img src="./images/tours/School-tours3.jpg"></div>
+  <div class="item tours"><img src="./images/tours/School-tours4.jpg"></div>
+  <div class="item tours"><img src="./images/tours/School-tours5.jpg"></div>
+
+</div>
+
+<!-- Lightbox -->
+<div id="lightbox">
+  <span onclick="closeLightbox()">×</span>
+  <img id="lightbox-img">
+</div>
+
+<script>
+function filterImages(category, btn) {
+  let items = document.querySelectorAll('.item');
+  let buttons = document.querySelectorAll('.filters button');
+
+  buttons.forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+
+  items.forEach(item => {
+    item.style.display =
+      (category === 'all' || item.classList.contains(category))
+      ? 'block' : 'none';
+  });
+}
+
+// Lightbox
+let images = document.querySelectorAll('.item img');
+let lightbox = document.getElementById('lightbox');
+let lightImg = document.getElementById('lightbox-img');
+
+images.forEach(img => {
+  img.onclick = () => {
+    lightbox.style.display = 'flex';
+    lightImg.src = img.src;
+  };
+});
+
+function closeLightbox() {
+  lightbox.style.display = 'none';
+}
+</script>
+
+</body>
+</html>
